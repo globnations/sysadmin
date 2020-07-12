@@ -1,13 +1,21 @@
 # sysadmin
-installer, configuration, update &amp; automate
+installer, configuration, update &amp; automate,
+why always to repeat install full complet for server Ubuntu or Debian  
+
 
 ## last update 12/07/2020 @ 11:44PM Europe/Paris
 
-BETA version
+actual version BETA
+tested WSL Ubuntu
+
+## Starter
+
+	git clone https://github.com/globnations/sysadmin.git
 
 ## TODO
 
 + fail2ban
++ bind9
 
 ## SETUP
 
