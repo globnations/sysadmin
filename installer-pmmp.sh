@@ -21,15 +21,3 @@ chmod +x PocketMine-MP.phar start.sh
 echo "IS NOW START then STOP & EDIT the FILE will start on 10 second"
 echo "Then Testéd after do <<stop>> commend line"
 echo "when done success do this: <<screen>> & <<./start.sh>>"
-echo '<html>
-	<head>
-		<title>Installer Crypt by AlexonbStudio</title>
-	</head>
-	<body>
-		<h1>Installer Minecraft Bedrock PocketMine-MP</h1>
-		<p>Scripting create by <a href="https://alexonbstudio.fr" rel="dofollow">
-		AlexonbStudio</a></p>
-	
-	</body>
-</html>' > index.html
-chown -R $SUDO_USER:$SUDO_USER /var/www/play/*
