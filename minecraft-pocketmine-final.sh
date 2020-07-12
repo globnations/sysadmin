@@ -68,11 +68,11 @@ echo '==========			BEGIN HOSTNAME+HOST CONFIG			=========='
 	echo "\n\n##########			HELP END			##########"
 
 # special 
-domain=$1
-ipv4local=$2
-ipv6local=$3
-myipv4public=$4
-myipv6public=$5
+domain=""
+ipv4local=""
+ipv6local=""
+myipv4public=""
+myipv6public=""
 mailinetrn="mail"
 players="play"
 www="www"
