@@ -1,4 +1,3 @@
-time works 15h= 575.44ht
 
 Step 1) sh ./minecraft-pocketmine-final.sh ipv4local=x.x.x.x domain=alexonbstudio.tld #ipv4local domain hosts
 Step 2) sh ./minecraft-pocketmine-final.sh ipv6local=x:x:::x:x domain=alexonbstudio.tld #ipv6local domain hosts
