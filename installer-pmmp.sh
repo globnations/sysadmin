@@ -18,9 +18,9 @@ curl -O https://github.com/pmmp/PocketMine-MP/releases/download/3.14.1/PocketMin
 chmod +x PocketMine-MP.phar start.sh
 
 
-echo -e "IS NOW START then STOP & EDIT the FILE will start on 10 second"
-echo -e "Then Testéd after do <<stop>> commend line"
-echo -e "when done success do this: <<screen>> & <<./start.sh>>"
+echo "IS NOW START then STOP & EDIT the FILE will start on 10 second"
+echo "Then Testéd after do <<stop>> commend line"
+echo "when done success do this: <<screen>> & <<./start.sh>>"
 echo '<html>
 	<head>
 		<title>Installer Crypt by AlexonbStudio</title>

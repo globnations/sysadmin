@@ -5,24 +5,26 @@
 #		Copyright (c) AlexonbStudio for free(dom)
 #		Date 12/07/2020 - 19:31 (BETA)
 #########################################
-domain=$1
-name=$2
+domain="$1"
+name="$2"
 players="play"
 pmmps="$players.$domain"
+phpversionsUBU="7.4"
+phpversionsDEB="7.3"
 
 	apt install -y git
 
 
 	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/html/*
 	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/html
-	echo -e "EDIT THE FILE ON FOLDER [SITE.TLD]/configuration/sites.php\n"
-	echo -e "WITH FTP OR SFTP\n"
-	echo -e "$sites['name'] #Personal/Compagny name\n"
-	echo -e "$sites['domain'] #your-domain.tld"
-	echo -e "===================AUTO CONFIG WEBSITE====================="
-	echo -e "do it: sh ./website-project-wp.sh domain=your-domain.tld name=Name-compagny"
-	echo -e "Open your browser and access your domaine-name.tld | DONE!!!!:) "
-	echo -e "Custom all <<Configuration>> & <<themes>> folder possible"
+	echo "EDIT THE FILE ON FOLDER [SITE.TLD]/configuration/sites.php\n"
+	echo "WITH FTP OR SFTP\n"
+	echo "$sites['name'] #Personal/Compagny name\n"
+	echo "$sites['domain'] #your-domain.tld"
+	echo "===================AUTO CONFIG WEBSITE====================="
+	echo "do it: sh ./website-project-wp.sh domain=your-domain.tld name=Name-compagny"
+	echo "Open your browser and access your domaine-name.tld | DONE!!!!:) "
+	echo "Custom all <<Configuration>> & <<themes>> folder possible"
 	
 if [ $domain ] && [ $name ]; then
 	apt install zip unzip mariadb-server php php-xml php-fpm php-cli php-curl php-mysql php-gd php-mbstring php-imagick php-intl php-xml php-zip php-cgi php-xmlrpc php-soap tidy php-tidy sqlite php-pear -y
@@ -84,7 +86,7 @@ $portMAIL = 587;
 */
 
 
-?>" > /var/www/${domain}/configuration/sites.php
+?>" > "/var/www/$domain/configuration/sites.php"
 echo "<html>
 	<head>
 		<title>$name - Minecraft Bedrock server </title>
@@ -103,8 +105,17 @@ echo "<html>
 	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/play/index.html
 	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/${domain}/*
 	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/${domain}/configuration/sites.php
-	systemctl enable php7.4-fpm 
-	/lib/systemd/systemd-sysv-install enable php7.4-fpm
-	mv php.ini /etc/php/7.4/fpm/php.ini
-	systemctl restart php7.4-fpm 
+	if [ -z $phpversionsDEB != $phpversionsUBU ]; then
+		echo "Debian 10 Version"
+		systemctl enable php${phpversionsDEB}-fpm 
+		/lib/systemd/systemd-sysv-install enable php${phpversionsDEB}-fpm
+		mv php.ini /etc/php/${phpversionsDEB}/fpm/php.ini
+		systemctl restart php${phpversionsDEB}-fpm 
+	else
+		echo "Ubuntu 20.04 Version"
+		systemctl enable php${phpversionsUBU-fpm}
+		/lib/systemd/systemd-sysv-install enable php${phpversionsUBU}-fpm 
+		mv php.ini /etc/php/${phpversionsUBU}/fpm/php.ini
+		systemctl restart php${phpversionsUBU}-fpm 
+	fi
 fi
