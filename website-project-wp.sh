@@ -15,7 +15,7 @@ phpversionsDEB="7.3"
 	apt install -y git
 
 
-	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/html/*
+	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/html/
 	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/html
 	echo "EDIT THE FILE ON FOLDER [SITE.TLD]/configuration/sites.php\n"
 	echo "WITH FTP OR SFTP\n"
@@ -31,7 +31,7 @@ if [ $domain ] && [ $name ]; then
 	cd /var/www/${domain}
 	git clone https://github.com/website-project-WP/free-wp.git
 	echo "<?php
-/*
+/
 exemple $sites['show'];
 exemple $sites['update']['rdf'];
 exemple $sites['e-mail']['contact'];
@@ -39,7 +39,7 @@ exemple $sites['e-mail']['contact'];
 */
 $sites = array(
 	'name' => '$name',
-	'domain' => '$domain', /*domain: exemple.tld*/
+	'domain' => '$domain', /domain: exemple.tld*/
 	'protocol' => isset($_SERVER[\"HTTPS\"]) ? 'https' : 'http',
 	'template' => 'default',
 	'create' => array(),
@@ -47,13 +47,13 @@ $sites = array(
 		'rdf' => date('Y-m-d')
 	),
 	'copyright' => array(
-		'frontend' => 'Copyright &copy; 2020-'.date('Y'), /*show on template */
-		'rdf' => 'Copyright &copy;' /*show only template seo/txt/rdf*/
+		'frontend' => 'Copyright &copy; 2020-'.date('Y'), /show on template */
+		'rdf' => 'Copyright &copy;' /show only template seo/txt/rdf*/
 	),
 	'head' => array(
-		'robots' => 'noopd, noydir' /*Only show on template header.php | robots meta*/
+		'robots' => 'noopd, noydir' /Only show on template header.php | robots meta*/
 	),
-	'default-timezone' => 'Etc/UTC' /*Docs PHP variable date_default_timezone_set() */
+	'default-timezone' => 'Etc/UTC' /Docs PHP variable date_default_timezone_set() */
 );
 
 $JE_sites = json_encode($sites);
@@ -65,7 +65,7 @@ $JE_sites = json_encode($sites);
 #			DATABASE|ADODB			#
 #									#
 #####################################
-/*
+/
 $hostDB = 'localhost';
 $nameDB = '';
 $userDB = '';
@@ -78,7 +78,7 @@ $portDB = 3306;
 #			Email|SMTP 				#
 #									#
 #####################################
-/*
+/
 $hostMAIL = 'mail.exemple.tld';
 $userMAIL = 'user@exemple.tld';
 $passwdMAIL = '****';
@@ -103,7 +103,7 @@ echo "<html>
 </html>" > /var/www/play/index.html
 	rm -rf /var/www/${domain}/index.html
 	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/play/index.html
-	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/${domain}/*
+	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/${domain}/
 	chown -R ${SUDO_USER}:${SUDO_USER} /var/www/${domain}/configuration/sites.php
 	if [ -z $phpversionsDEB != $phpversionsUBU ]; then
 		echo "Debian 10 Version"
@@ -119,5 +119,6 @@ echo "<html>
 		systemctl restart php${phpversionsUBU}-fpm 
 	fi
 	
-	chown -R $SUDO_USER:$SUDO_USER /var/www/play/*
+	chown -R $SUDO_USER:$SUDO_USER /var/www/play/
+	cd /var/www/play/ && ./start.sh
 fi

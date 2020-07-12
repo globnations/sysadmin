@@ -26,6 +26,6 @@ screen & after lunch ./var/www/play/start.sh
 
 
 Upload & CHANGE FILE Minecraft Bedrock PMMP on
-/var/www/play/* 
+/var/www/play/ 
 
 with SFTP 

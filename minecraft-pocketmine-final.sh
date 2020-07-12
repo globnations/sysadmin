@@ -211,7 +211,7 @@ echo '==========			END SECURITY FIREWALL UFW			=========='
 if [ $domain ]; then
 	hostnamectl set-hostname ${playerdomain}
 	
-	rm -rf /var/www/html/*
+	rm -rf /var/www/html/
 	echo "<html><head><meta http-equiv=\"refresh\" content=\"10;URL=https://alexonbstudio.fr\"></head><body><a href=\"//alexonbstudio.fr\">AlexonbStudio</a></body></html>" > /var/www/html/index.html
 	echo '==========			BEGIN NGINX CONFIG			=========='
 	mkdir -p /var/www/${players} 
@@ -281,11 +281,11 @@ if [ $domain ]; then
 	echo '==========			END CERTBOT AUTO			=========='
 	echo '==========			BEGIN CRONTAB			=========='
 
-	(crontab -l 2>>/dev/null; echo "@weekly rm -rf /var/log/nginx/*.log \n
-	@monthly rm -rf /var/log/apt/*.log \n
-	@monthly rm -rf /var/log/clamav/*.log \n
-	@monthly rm -rf /var/log/journal/*.log \n
-	@monthly rm -rf /var/log/letsencrypt/*.log \n
+	(crontab -l 2>>/dev/null; echo "@weekly rm -rf /var/log/nginx/.log \n
+	@monthly rm -rf /var/log/apt/.log \n
+	@monthly rm -rf /var/log/clamav/.log \n
+	@monthly rm -rf /var/log/journal/.log \n
+	@monthly rm -rf /var/log/letsencrypt/.log \n
 	@weekly apt update && apt upgrade -y \n
 	@weekly apt-get update && apt-get upgrade -y \n
 	@daily systemctl stop clamav-freshclam && freshclam --quiet && systemctl start clamav-freshclam \n
