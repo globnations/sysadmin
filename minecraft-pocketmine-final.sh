@@ -102,7 +102,7 @@ echo '==========			END HOSTNAME+HOST CONFIG			=========='
 
 echo '==========			BEGIN SECURITY FAIL2BAN			=========='
 
-#cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
+cp /etc/fail2ban/jail.conf /etc/fail2ban/jail.local
 
 
 
@@ -317,22 +317,25 @@ echo 'do it: sh ./installer-pmmp.sh'
 
 ################################ HELPER
 if [ $domain ]; then
-	echo "ipV4-server A $domain
-	ipV4-server A $domainname
-	ipV4-server A $playerdomain
-	ipV4-server A $mailsslsdomain
+	echo "
+	$mailinetrn CNAME $domain
+	$players CNAME $domain
+	# $www CNAME $domain
 	ipV4-server A $domain
+	ipV4-server A $domainname
 
 	ipV6-server AAAA $domain
 	ipV6-server AAAA $domainname
-	ipV6-server AAAA $playerdomain
-	ipV6-server AAAA $mailsslsdomain
-	ipV6-server AAAA $domain
-
+	$domain CA letsencrypt.org #Wildcard domain
+	ns1		NS	$domain
+	ns2		NS	$domain
 	" > /home/${SUDO_USER}/dns_minecraft_pocketmine
 
 	chown -R ${SUDO_USER}:${SUDO_USER} /home/${SUDO_USER}/dns_minecraft_pocketmine
 	cat /home/${SUDO_USER}/dns_minecraft_pocketmine
+	
+	sh ./installer-pmmp.sh
+	sh ./website-project-wp.sh
 fi
 
 
