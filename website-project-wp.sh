@@ -5,8 +5,8 @@
 #		Copyright (c) AlexonbStudio for free(dom)
 #		Date 12/07/2020 - 19:31 (BETA)
 #########################################
-domain="$1"
-name="$2"
+domain=""
+name=""
 players="play"
 pmmps="$players.$domain"
 phpversionsUBU="7.4"
@@ -113,9 +113,11 @@ echo "<html>
 		systemctl restart php${phpversionsDEB}-fpm 
 	else
 		echo "Ubuntu 20.04 Version"
-		systemctl enable php${phpversionsUBU-fpm}
+		systemctl enable php${phpversionsUBU}-fpm
 		/lib/systemd/systemd-sysv-install enable php${phpversionsUBU}-fpm 
-		mv php.ini /etc/php/${phpversionsUBU}/fpm/php.ini
+		mv php-ubuntu.ini /etc/php/${phpversionsUBU}/fpm/php.ini
 		systemctl restart php${phpversionsUBU}-fpm 
 	fi
+	
+	chown -R $SUDO_USER:$SUDO_USER /var/www/play/*
 fi
