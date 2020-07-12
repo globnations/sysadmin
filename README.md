@@ -48,7 +48,9 @@ tested WSL Ubuntu
 + nginx
 + clamav
 + fail2ban
++ PHP
 + Minecraft Bedrock Pocketmine
++ Website-Project-WP (futur beta 2.0 free version) 
 
 ### Copyright &copy; AlexonbStudio for freedom
 
