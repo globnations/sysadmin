@@ -1,0 +1,32 @@
+time works 7h= 268.52ht
+
+Step 1) sh ./minecraft-pocketmine-final.sh ipv4local=x.x.x.x domain=alexonbstudio.tld #ipv4local domain hosts
+Step 2) sh ./minecraft-pocketmine-final.sh ipv6local=x:x:::x:x domain=alexonbstudio.tld #ipv6local domain hosts
+
+INFO knwon your personnal ipv4/ipv6 public on https://ip.lafibre.info/ for secure SSH access
+Step 3) sh ./minecraft-pocketmine-final.sh myipv4public=x.x.x.x #myipv4public Your personnal IPv4
+Step 4) sh ./minecraft-pocketmine-final.sh myipv6public=x:x:::x:x #myipv6public Your personnal IPv6
+Step 5) sh ./website-project-wp.sh domain=your-domain.tld name=Name-compagny
+IS NOW START then STOP & EDIT the FILE will start on 10 second
+Then Testéd after do <<stop>> commend line
+when done success do this: <<screen>> & <<./start.sh>>
+Step 6) sh ./minecraft-pocketmine-final.sh ipv4local=x.x.x.x #ipv4 local network of your server
+Step 7) sh ./minecraft-pocketmine-final.sh ipv6local=x:x:::x:x #ipv6 local network of your server 
+Step 8) sh ./minecraft-pocketmine-final.sh domain=alexonbstudio.tld #default your domain name
+HELP EMAIL how to use
+https://github.com/LukeSmithxyz/emailwiz
+Always check journalctl -xe to see the specific problem.
+
+step 9) know dns cat /home/${SUDO_USER}/dns_minecraft_pocketmine
+
+
+reboot now
+
+screen & after lunch ./var/www/play/start.sh
+
+
+
+Upload & CHANGE FILE Minecraft Bedrock PMMP on
+/var/www/play/* 
+
+with SFTP 
